@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES6类</title>
+</head>
+<body>
+  <script>
+    
+    /* 
+    需求: 
+        现在2个人, 都有姓名与年龄(值自己指定), 都能自我介绍自己的姓名和年龄
+        现在又有了一个学生, 它有身价的属性, 能介绍它的所有信息
+    */
+
+    /* 
+    注意: React会使用class
+    ES6类: 构造器 / 实例属性 / 实例方法 / 原型方法 / 继承
+      构造器: 创建类的实例时要调用的特殊方法, 用来初始化实例属性和实例方法
+      实例属性: propName = 非函数值  本质是在构造器中执行的: this.propName = 非函数值
+      实例方法: propName = 函数  本质是在构造器中执行的: this.propName = 函数
+        function函数: 如果通过实例来调用,this为实例; 如果不是, this为undefined, 因为是严格模式
+        箭头函数: this总是实例对象, 因为使用的总是构造器中的this
+      原型方法: method () {}  它不是在实例上, 而是在原型对象上, this可能是实例或undefined
+      静态属性: static propName = value 类本身的属性, 通过类来读取调用
+      继承: extends 子类实例自动拥有了父类型定义
+      子类构造器中必须得先调用super()
+    */
+
+
+    class Person {
+      static test6 = 'abc'
+      static test7 = function () {
+        console.log('test7', this)
+      }
+
+      constructor (name, age) {
+        this.name = name
+        this.age = age
+
+        this.test1 = function () {
+          console.log('test1', this)
+        }
+
+        /* 
+        this.test2 = 'abc'
+        this.test3 = function () {
+          console.log('test3', this)
+        }
+        this.test4 = () => {
+          console.log('test4', this)
+        }
+        */
+      }
+
+      test2 = 'abc'
+      test3 = function () {
+        console.log('test3', this)
+      }
+      test4 = () => {
+        console.log('test4', this)
+      }
+
+      test5 () {
+        console.log('test5', this)
+      }
+
+      sayInfo () {
+        console.log(`我叫${this.name}, 今年${this.age}`)
+      }
+    }
+
+
+    class Student extends Person {
+      constructor (name, age, sex) {
+        super(name, age)
+        this.sex = sex
+      }
+
+      sayInfo2 () {
+        console.log(`我叫${this.name}, 今年${this.age}, `)
+      }
+    }
+
+    const s = new Student('a', 23, '男')
+    console.log(s)
+
+
+
+
+    // const p1 = new Person('A', 20)
+    // const p2 = new Person('B', 22)
+    // p1.sayInfo()
+    // p2.sayInfo()
+
+    // console.log(p2)
+    // p2.test1()
+    // p2.test3()
+    // p2.test4()
+    // p2.test5()
+    // const t1 = p2.test1
+    // const t3 = p2.test3
+    // const t4 = p2.test4
+    // const t5 = p2.test5
+    // t1()
+    // t3()
+    // t4()
+    // t5()
+
+    // console.log(Person.test6)
+    // Person.test7()
+    
+  </script>
+</body>
+</html>
