@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import MouseUrl from '../assets/mouse.gif'
 import usePosition from '../usePosition'
 export default function Mouse() {

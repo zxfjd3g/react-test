@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 export default function Test(props) {
+  console.log('Test')
   // 外城的回调,模拟挂载成功
   // 如果第二个参数,不写外层函数就模拟了挂载,又模拟更新
   // 注意: useEffect默认在执行更新之前,会先卸载. 因为不想让挂载的代码,在内存中存在两份

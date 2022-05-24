@@ -1,5 +1,3 @@
-import React, { Component } from 'react'
-// 导出的就是webpack编译之后的文件所处的路径
 import CatUrl from '../assets/cat.gif'
 import usePosition from '../usePosition'
 
